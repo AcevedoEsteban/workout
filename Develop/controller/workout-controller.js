@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-const path = require("path");
 
 router.get("/api/workout", async (req, res) => {
   try {
@@ -34,10 +33,12 @@ router.put("/api/workouts/:id", async (req, res) => {
   try {
     const data = await db.Workout.update(
       { _id: req.params.id },
-      { $push: { excercises: req.body } }
+      { $push: { excercises: req.body } },
+      { new: true }
     );
     res.json(data);
   } catch (err) {
     console.log(err);
   }
 });
+module.exports = router;
