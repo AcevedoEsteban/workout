@@ -13,21 +13,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-app.use(htmlController);
-app.use(workoutController);
 
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost:27017/workout", {
-  useNewUrlParser: true,
-  // useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://user:password1@ds211259.mlab.com:11259/heroku_qfb9kbdc",
+  {
+    useNewUrlParser: true,
+
+    useUnifiedTopology: true,
+  }
+);
 
 // mongoose.connect("mongodb://localhost/workouts", {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
 
+app.use(htmlController);
+app.use(workoutController);
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
