@@ -1,9 +1,4 @@
 const path = require("path");
-//const router = require("./workout-controller");
-// const excerise = require("../public/exercise.html");
-// router.get("/exercise", async (req, res) => {
-//   res.sendFile(path.join(__dirname,' ../public'/exercise.html'))
-// });
 
 const express = require("express");
 const router = express.Router();

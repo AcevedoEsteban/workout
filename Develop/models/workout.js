@@ -4,33 +4,25 @@ const workoutSchema = new Schema({
   day: { type: Date, default: Date.now },
   excercises: [
     {
-      type: {
-        type: String,
-        required: "enter type of workout",
-      },
-      name: {
-        type: String,
-        required: "enter specific workout name",
-      },
-      duration: {
-        type: Number,
-        required: "enter how many minutes long is the workout",
-      },
-      weight: {
-        type: Number,
-        required: "enter the added weight used",
-      },
-      reps: {
-        type: Number,
-        required: "enter the number of reps performed",
-      },
-      sets: {
-        type: Number,
-        required: "enter number of sets completed",
-      },
+      type: String,
+
+      name: String,
+      // required: "enter specific workout name",
+
+      duration: Number,
+      // required: "enter how many minutes long is the workout",
+
+      weight: Number,
+      // required: "enter the added weight used",
+
+      reps: Number,
+      // required: "enter the number of reps performed",
+
+      sets: Number,
+      // required: "enter number of sets completed",
     },
   ],
 });
-const Workout = model("Workout", workoutSchema);
+const Workout = model("workouts", workoutSchema);
 
 module.exports = Workout;
