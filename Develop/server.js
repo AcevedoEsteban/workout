@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const workoutController = require("./controller/workout-controller");
-const htmlController = require("./controller/html-controller");
+// const htmlController = require("./controller/html-controller");
 const morgan = require("morgan");
 
 const app = express();
@@ -24,13 +24,13 @@ app.use(express.static("public"));
 //     useUnifiedTopology: true,
 //   }
 // );
-mongoose.connect("mongodb://localhost:27017/workouts", {
+mongoose.connect("mongodb://localhost/workouts", {
   useNewUrlParser: true,
   // useFindAndModify: false,
   useUnifiedTopology: true,
 });
 
-app.use(htmlController);
+// app.use(htmlController);
 app.use(workoutController);
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
